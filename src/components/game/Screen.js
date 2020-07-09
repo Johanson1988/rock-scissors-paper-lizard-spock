@@ -39,12 +39,14 @@ const Screen = ({ gameMode, saveGame }) => {
     }
 
     const startGame = () => {
-        if (playerSelection) {
+        if (playerSelection !== "" && playerSelection !== "question-mark") {
             if (gameMode === "cpu-vs-cpu") playerSelection = getRandomChoice();
             const playerTwoSelection = getRandomChoice();
             const winner = checkWinner(playerSelection, playerTwoSelection);
+            gameMode === "cpu-vs-cpu" ?
+                setPlayerSelection(playerTwoSelection) :
+                setPlayerSelection("");
             setCPUSelection(playerTwoSelection);
-            setPlayerSelection(playerSelection);
             saveGame({player1: playerSelection, player2: playerTwoSelection, winner });
             const winnerH5 = document.querySelector("#winner");
             winner !== "draw" ?
@@ -64,11 +66,11 @@ const Screen = ({ gameMode, saveGame }) => {
 
                         <h2>Chooose your weapon!</h2>
                         <section className="buttons-container" >
-                            <PlayerChoiceButton imgSrc="/images/rock.png" imgAlt="Rock" setPlayerSelection={setPlayerSelection}/>
-                            <PlayerChoiceButton imgSrc="/images/scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
-                            <PlayerChoiceButton imgSrc="/images/paper.png" imgAlt="Paper" setPlayerSelection={setPlayerSelection}/>
-                            <PlayerChoiceButton imgSrc="/images/lizard.png" imgAlt="Lizard" setPlayerSelection={setPlayerSelection}/>
-                            <PlayerChoiceButton imgSrc="/images/spock.png" imgAlt="Spock" setPlayerSelection={setPlayerSelection}/>
+                            <PlayerChoiceButton imgSrc="/images/Rock.png" imgAlt="Rock" setPlayerSelection={setPlayerSelection}/>
+                            <PlayerChoiceButton imgSrc="/images/Scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
+                            <PlayerChoiceButton imgSrc="/images/Paper.png" imgAlt="Paper" setPlayerSelection={setPlayerSelection}/>
+                            <PlayerChoiceButton imgSrc="/images/Lizard.png" imgAlt="Lizard" setPlayerSelection={setPlayerSelection}/>
+                            <PlayerChoiceButton imgSrc="/images/Spock.png" imgAlt="Spock" setPlayerSelection={setPlayerSelection}/>
                         </section> 
                     </section>
                     :
