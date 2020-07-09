@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import PlayerChoiceButton from './PlayerChoiceButton';
+import RandomChoiceViewer from './RandomChoiceViewer';
 
+const Screen = ({ gameMode, saveGame }) => {
 
-const Screen = ({ gameMode, playerSelection, saveGame }) => {
+    let [ playerSelection, setPlayerSelection ] = useState("");
+    let [ cpuSelection, setCPUSelection ] = useState("question-mark");
 
     const getRandomChoice = () => {
         const options = ["Rock", "Scissors", "Paper", "Lizard", "Spock"];
@@ -10,7 +14,7 @@ const Screen = ({ gameMode, playerSelection, saveGame }) => {
     }
 
     const checkWinner = (player1, player2) => {
-        console.log(player1, player2);
+
         if(player1 === player2) return 'draw'
         switch(player1) {
             case 'Rock':
@@ -45,12 +49,29 @@ const Screen = ({ gameMode, playerSelection, saveGame }) => {
     }
     
     return (
-        <section className="game-screen">
-            <h2>Player 1</h2>
+        <section className="game-screen container">
+            <div className="row">
+            <section className="player-options container col s6">
+                <h2>Chooose your weapon!</h2>
+                <section className="buttons-container" >
+                    <PlayerChoiceButton imgSrc="/images/rock.png" imgAlt="Rock" setPlayerSelection={setPlayerSelection}/>
+                    <PlayerChoiceButton imgSrc="/images/scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
+                    <PlayerChoiceButton imgSrc="/images/paper.png" imgAlt="Paper" setPlayerSelection={setPlayerSelection}/>
+                    <PlayerChoiceButton imgSrc="/images/lizard.png" imgAlt="Lizard" setPlayerSelection={setPlayerSelection}/>
+                    <PlayerChoiceButton imgSrc="/images/spock.png" imgAlt="Spock" setPlayerSelection={setPlayerSelection}/>
+                </section>
+            </section>
+            <section className="player-options container col s6">
+                <h2>Player 2 Weapon</h2>
+                <div className="container random-container">
+                    <RandomChoiceViewer name={cpuSelection} />
+                </div>
+            </section>
+            </div>
+            
             <button className="waves-effect waves-light btn-large" onClick={()=> startGame()}>Start!</button>
             
-            <h2>Player 2</h2>
-            
+
         </section>
     )
 }

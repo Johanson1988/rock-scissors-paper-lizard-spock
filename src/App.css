@@ -7,3 +7,14 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.player-choice-button {
+  width: 120px;
+  border-radius: 20%;
+}
+
+.random-container {
+  display:flex;
+  justify-content: center;
+  
+}
