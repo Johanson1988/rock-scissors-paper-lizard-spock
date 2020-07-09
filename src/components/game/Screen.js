@@ -47,9 +47,10 @@ const Screen = ({ gameMode, playerSelection, saveGame }) => {
     return (
         <section className="game-screen">
             <h2>Player 1</h2>
-            <h2>Player 2</h2>
-
             <button className="waves-effect waves-light btn-large" onClick={()=> startGame()}>Start!</button>
+            
+            <h2>Player 2</h2>
+            
         </section>
     )
 }
