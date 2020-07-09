@@ -39,12 +39,12 @@ const Screen = ({ gameMode, saveGame }) => {
     }
 
     const startGame = () => {
-        if (playerSelection !== "" && playerSelection !== "question-mark") {
+        if (gameMode === "cpu-vs-cpu" || playerSelection !== "" && playerSelection !== "question-mark") {
             if (gameMode === "cpu-vs-cpu") playerSelection = getRandomChoice();
             const playerTwoSelection = getRandomChoice();
             const winner = checkWinner(playerSelection, playerTwoSelection);
             gameMode === "cpu-vs-cpu" ?
-                setPlayerSelection(playerTwoSelection) :
+                setPlayerSelection(playerSelection) :
                 setPlayerSelection("");
             setCPUSelection(playerTwoSelection);
             saveGame({player1: playerSelection, player2: playerTwoSelection, winner });
