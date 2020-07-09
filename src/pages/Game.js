@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 //Components
-import StartButton from './../components/game/StartButton';
+
 import PlayerChoiceButton from './../components/game/PlayerChoiceButton';
+import Screen from './../components/game/Screen';
 
 const Game = () => {
     const { gameMode } = useParams();
-    const [ playerSelection, setPlayerSelection ] = useState(null);
+    const [ playerSelection, setPlayerSelection ] = useState("");
 
     return (
         
@@ -19,9 +20,9 @@ const Game = () => {
             <section className="buttons-container">
                 <PlayerChoiceButton imgSrc="/images/scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
                 <h4>Hola:{playerSelection}</h4>
+                <Screen gameMode={gameMode} playerSelection={playerSelection} />
                 
             </section>
-            <StartButton />
         </div>
 
         :
