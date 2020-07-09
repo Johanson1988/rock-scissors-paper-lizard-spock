@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import PlayerChoiceButton from './PlayerChoiceButton';
 import RandomChoiceViewer from './RandomChoiceViewer';
@@ -39,16 +39,15 @@ const Screen = ({ gameMode, saveGame }) => {
     }
 
     const startGame = () => {
-        if (gameMode === "cpu-vs-cpu") setPlayerSelection(getRandomChoice());
-        const playerTwoSelection = getRandomChoice();
-        console.log(cpuSelection);
-        const winner = checkWinner(playerSelection, playerTwoSelection);
-        setCPUSelection(playerTwoSelection);
-        console.log(winner);
-        
-        saveGame({player1: playerSelection, player2: playerTwoSelection, winner })
-
-
+        if (playerSelection) {
+            if (gameMode === "cpu-vs-cpu") setPlayerSelection(getRandomChoice());
+            const playerTwoSelection = getRandomChoice();
+            const winner = checkWinner(playerSelection, playerTwoSelection);
+            setCPUSelection(playerTwoSelection);
+            
+            saveGame({player1: playerSelection, player2: playerTwoSelection, winner })
+        }
+        else alert("You must select a weapon");
     }
     
     return (
