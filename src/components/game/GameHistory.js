@@ -12,8 +12,8 @@ const GameHistory = ({ previousGames }) => {
             </thead>
             <tbody>
             {
-                previousGames ? previousGames.map(game => 
-                <tr>
+                previousGames ? previousGames.map((game, index) => 
+                <tr key={index} >
                     <td>{game.player1}</td>
                     <td>{game.player2}</td>
                     <td>{game.winner}</td>

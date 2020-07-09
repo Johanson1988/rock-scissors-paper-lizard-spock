@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import PlayerChoiceButton from './PlayerChoiceButton';
 import RandomChoiceViewer from './RandomChoiceViewer';
 
 const Screen = ({ gameMode, saveGame }) => {
 
-    let [ playerSelection, setPlayerSelection ] = useState("");
-    let [ cpuSelection, setCPUSelection ] = useState("question-mark");
+    const [ playerSelection, setPlayerSelection ] = useState("");
+    const [ cpuSelection, setCPUSelection ] = useState("question-mark");
+
 
     const getRandomChoice = () => {
         const options = ["Rock", "Scissors", "Paper", "Lizard", "Spock"];
@@ -38,9 +39,11 @@ const Screen = ({ gameMode, saveGame }) => {
     }
 
     const startGame = () => {
-        if (gameMode === "cpu-vs-cpu") playerSelection = getRandomChoice();
+        if (gameMode === "cpu-vs-cpu") setPlayerSelection(getRandomChoice());
         const playerTwoSelection = getRandomChoice();
+        console.log(cpuSelection);
         const winner = checkWinner(playerSelection, playerTwoSelection);
+        setCPUSelection(playerTwoSelection);
         console.log(winner);
         
         saveGame({player1: playerSelection, player2: playerTwoSelection, winner })

@@ -29,7 +29,7 @@ const Game = () => {
                     <Screen gameMode={ gameMode } saveGame={ saveGame } />
                 </section>
 
-            <section className="game-history-container">
+            <section className="game-history-container container">
                 <GameHistory previousGames={ gameHistory } />
             </section>
         </div>
