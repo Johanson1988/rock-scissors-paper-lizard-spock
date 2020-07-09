@@ -20,12 +20,12 @@
   
 }
 #choose-game-mode {
-  padding-top:45px;
-  padding-bottom: 20px;
+  padding-top:1.5em;
+  padding-bottom: .5px;
 }
 
 .home-buttons {
-  margin: 0px 15px;
+  margin: .25em .5em;
 }
 
 #cover-picture {
@@ -34,6 +34,12 @@
 
 .game-title {
   font-size: 3em;
+}
+
+@media screen and (max-width: 600px) {
+  #cover-picture {
+    display: none;
+  }
 }
 
 .weapon-selector-title {
