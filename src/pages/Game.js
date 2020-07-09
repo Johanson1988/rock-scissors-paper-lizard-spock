@@ -12,6 +12,10 @@ const Game = () => {
     const [ playerSelection, setPlayerSelection ] = useState("");
     const [ gameHistory, setGameHistory ] = useState([]);
 
+    const saveGame = newGame => {
+        console.log('Saving game: ', newGame);
+        setGameHistory([...gameHistory, newGame])}
+
     return (
         
         gameMode === "player-vs-cpu" || gameMode === "cpu-vs-cpu" ?            
@@ -22,8 +26,8 @@ const Game = () => {
             <section className="buttons-container">
                 <PlayerChoiceButton imgSrc="/images/scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
                 <h4>Hola:{playerSelection}</h4>
-                <Screen gameMode={gameMode} playerSelection={playerSelection} />
-                <GameHistory />
+                <Screen gameMode={ gameMode } playerSelection={ playerSelection } saveGame={ saveGame } />
+                <GameHistory previousGames={ gameHistory } />
             </section>
             <section className="game-history-container">
 

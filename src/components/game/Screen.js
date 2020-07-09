@@ -2,42 +2,44 @@ import React from 'react';
 
 
 
-const Screen = ({ gameMode, playerSelection }) => {
+const Screen = ({ gameMode, playerSelection, saveGame }) => {
 
     const getRandomChoice = () => {
         const options = ["Rock", "Scissors", "Paper", "Lizard", "Spock"];
         return options[Math.floor(Math.random()*options.length)];
     }
 
-    const checkIfPlayerOneWin = (player1, player2) => {
+    const checkWinner = (player1, player2) => {
         console.log(player1, player2);
         if(player1 === player2) return 'draw'
         switch(player1) {
             case 'Rock':
-                if (player2 === "Scissors" || player2 === "Lizard") return true;
-                return false;
+                if (player2 === "Scissors" || player2 === "Lizard") return 'player1';
+                return 'player2';
             case 'Paper':
-                if (player2 === "Rock" || player2 === "Spock") return true;
-                return false;
+                if (player2 === "Rock" || player2 === "Spock") return 'player1';
+                return 'player2';
             case 'Scissors':
-                if (player2 === "Paper" || player2 === "Lizard") return true;
-                return false;
+                if (player2 === "Paper" || player2 === "Lizard") return 'player1';
+                return 'player2';
             case 'Lizard':
-                if (player2 === "Spock" || player2 === "Paper") return true;
-                return false;
+                if (player2 === "Spock" || player2 === "Paper") return 'player1';
+                return 'player2';
             case 'Spock':
-                if (player2 === "Rock" || player2 === "Scissors") return true;
-                return false;
+                if (player2 === "Rock" || player2 === "Scissors") return 'player1';
+                return 'player2';
             default:
-                return false;
+                return 'player2';
         }
     }
 
     const startGame = () => {
         if (gameMode === "cpu-vs-cpu") playerSelection = getRandomChoice();
         const playerTwoSelection = getRandomChoice();
-        const playerOneWinner = checkIfPlayerOneWin(playerSelection, playerTwoSelection);
-        console.log(playerOneWinner);
+        const winner = checkWinner(playerSelection, playerTwoSelection);
+        console.log(winner);
+        
+        saveGame({player1: playerSelection, player2: playerTwoSelection, winner })
 
 
     }
