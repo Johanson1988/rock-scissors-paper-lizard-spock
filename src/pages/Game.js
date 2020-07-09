@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 //Components
@@ -7,7 +7,9 @@ import PlayerChoiceButton from './../components/game/PlayerChoiceButton';
 
 const Game = () => {
     const { gameMode } = useParams();
-    return(
+    const [ playerSelection, setPlayerSelection ] = useState(null);
+
+    return (
         
         gameMode === "player-vs-cpu" || gameMode === "cpu-vs-cpu" ?            
         
@@ -15,7 +17,8 @@ const Game = () => {
             <h1>Game</h1>
             <h2>{ gameMode }</h2>
             <section className="buttons-container">
-                <PlayerChoiceButton imgSrc="/images/scissors.png" imgAlt="Scissors" />
+                <PlayerChoiceButton imgSrc="/images/scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
+                <h4>Hola:{playerSelection}</h4>
                 
             </section>
             <StartButton />
