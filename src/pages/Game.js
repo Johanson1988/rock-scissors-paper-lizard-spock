@@ -12,9 +12,7 @@ const Game = () => {
 
     const [ gameHistory, setGameHistory ] = useState([]);
 
-    const saveGame = newGame => {
-        console.log('Saving game: ', newGame);
-        setGameHistory([...gameHistory, newGame])}
+    const saveGame = newGame => setGameHistory([...gameHistory, newGame]);
 
     return (
         
