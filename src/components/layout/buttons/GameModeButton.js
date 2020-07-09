@@ -5,7 +5,7 @@ const GameModeButton = ({gameMode, name}) => {
     
     return (
         <Link to={`game/${gameMode}`} >
-            <button className="waves-effect waves-light btn-large">
+            <button className="waves-effect waves-light btn-large home-buttons">
                 {name}
             </button>
         </Link>

@@ -64,7 +64,7 @@ const Screen = ({ gameMode, saveGame }) => {
                     gameMode === "player-vs-cpu" ?
                     <section className="player-options container col s6">
 
-                        <h2>Chooose your weapon!</h2>
+                        <h5 class="weapon-selector-title">Chooose your weapon!</h5>
                         <section className="buttons-container" >
                             <PlayerChoiceButton imgSrc="/images/Rock.png" imgAlt="Rock" setPlayerSelection={setPlayerSelection}/>
                             <PlayerChoiceButton imgSrc="/images/Scissors.png" imgAlt="Scissors" setPlayerSelection={setPlayerSelection}/>
@@ -75,14 +75,14 @@ const Screen = ({ gameMode, saveGame }) => {
                     </section>
                     :
                     <section className="player-options container col s6">
-                        <h2>Player 1 Weapon</h2>
+                        <h5 class="weapon-selector-title">Player 1 Weapon</h5>
                         <div className="container random-container">
                             <RandomChoiceViewer name={playerSelection} />
                         </div>
                     </section>
                 }
                 <section className="player-options container col s6">
-                    <h2>Player 2 Weapon</h2>
+                    <h5 class="weapon-selector-title">Player 2 Weapon</h5>
                     <div className="container random-container">
                         <RandomChoiceViewer name={cpuSelection} />
                     </div>
@@ -92,7 +92,7 @@ const Screen = ({ gameMode, saveGame }) => {
                 <h5 id="winner"> </h5>
             </div>
             
-            <button className="waves-effect waves-light btn-large" onClick={()=> startGame()}>Start!</button>
+            <button className="waves-effect waves-light btn-large start-button" onClick={()=> startGame()}>Start!</button>
             
 
         </section>

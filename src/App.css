@@ -4,17 +4,49 @@
 
 .buttons-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .player-choice-button {
   width: 120px;
   border-radius: 20%;
+  margin: .5em;
 }
 
 .random-container {
   display:flex;
   justify-content: center;
   
+}
+#choose-game-mode {
+  padding-top:45px;
+  padding-bottom: 20px;
+}
+
+.home-buttons {
+  margin: 0px 15px;
+}
+
+#cover-picture {
+  margin-top: 1em;
+}
+
+.game-title {
+  font-size: 3em;
+}
+
+.weapon-selector-title {
+  margin-bottom:1em;
+}
+.start-button {
+  margin: 1em auto;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
 }

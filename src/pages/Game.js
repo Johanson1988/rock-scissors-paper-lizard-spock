@@ -20,7 +20,7 @@ const Game = () => {
         
         <div>
 
-            <h2>Game Mode: { gameMode }</h2>
+            <h2 className="game-title">Game Mode: { gameMode }</h2>
                 
 
                 <section className="screen-container">
