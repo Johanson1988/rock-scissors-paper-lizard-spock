@@ -1,5 +1,4 @@
-# NiceCactus technical Test
-## Rock, paper, scissors, lizard, Spock
+# Rock, paper, scissors, lizard, Spock
 
 WebApp to play the popular game including the modifications added by Sheldon Cooper to avoid draws.
 https://www.youtube.com/watch?v=Kov2G0GouBw
